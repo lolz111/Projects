@@ -1,0 +1,3 @@
+ -Xms64m -Xmx1024m
+Dota2
+gicentreUtils.jar,json-simple-1.1.1.jar,Dota2.jar,core.jar,jogl-all.jar,gluegen-rt.jar,jogl-all-natives-windows-i586.jar,gluegen-rt-natives-windows-i586.jar
