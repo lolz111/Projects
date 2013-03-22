@@ -1,0 +1,129 @@
+<html>
+
+	<header>
+		<meta charset="utf-8">
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+		<script type="text/javascript" src="js/unitransData.js"></script>
+		<script type="text/javascript" src="js/unitransProfile.js"></script>			
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>Milestone 1</title>
+	</header>
+
+	<body onload="begin()">
+		
+		<h1>UNITRANS PIE</h1>
+
+		<div id="pieContainer"></div>						
+
+		<h2 id="descriptionText">October 2012</h2>
+
+		<p id="test"></p>		
+
+		<h3>OPTIONS</h3>		
+
+		<form id="applybutton">
+			<label><input type="button" value"button" value="Apply" onclick="updateUserProfileSelections();"></label>
+		</form>
+
+		<form id="boardingsDeboardings">
+			<label><input type="checkbox" id="boardings"></input><b>Boardings</b></label>
+			<label><input type="checkbox" id="deboardings"></input><b>Deboardings</b></label>
+		</form>
+
+		<form id="optionsForm">
+			<div id="buslinesContainer">
+				<div id="buslinestext"><b>Bus Lines</b></div>
+				<select id="buslines" name="buslines" size="15" multiple="multiple">
+					<option value="none" class="none"></option>
+					<option value="A" id="A" selected="selected">&#160;&#160;&#160;&#160;&#160;A&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="B" id="B" selected="selected">&#160;&#160;&#160;&#160;&#160;B&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="C" id="C" selected="selected">&#160;&#160;&#160;&#160;&#160;C&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="D" id="D" selected="selected">&#160;&#160;&#160;&#160;&#160;D&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="E" id="E" selected="selected">&#160;&#160;&#160;&#160;&#160;E&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="F" id="F" selected="selected">&#160;&#160;&#160;&#160;&#160;F&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="G" id="G" selected="selected">&#160;&#160;&#160;&#160;&#160;G&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="J" id="J" selected="selected">&#160;&#160;&#160;&#160;&#160;J&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="K" id="K" selected="selected">&#160;&#160;&#160;&#160;&#160;K&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="L" id="L" selected="selected">&#160;&#160;&#160;&#160;&#160;L&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="M" id="M" selected="selected">&#160;&#160;&#160;&#160;&#160;M&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="O" id="O" selected="selected">&#160;&#160;&#160;&#160;&#160;O&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="P" id="P" selected="selected">&#160;&#160;&#160;&#160;&#160;P&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="Q" id="Q" selected="selected">&#160;&#160;&#160;&#160;&#160;Q&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="S" id="S" selected="selected">&#160;&#160;&#160;&#160;&#160;S&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="T" id="T" selected="selected">&#160;&#160;&#160;&#160;&#160;T&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="V" id="V" selected="selected">&#160;&#160;&#160;&#160;&#160;V&#160;&#160;&#160;&#160;&#160;</option>
+					<option value="W" id="W" selected="selected">&#160;&#160;&#160;&#160;&#160;W&#160;&#160;&#160;&#160;&#160;</option>
+				</select>
+			</div>
+
+			<div id="daysContainer">
+				<div id="daystext"><b>Days</b></div>
+				<div>
+					<select id="daysOfWeek" name="day" size="5" multiple="multiple">
+						<option value="none" class="none" selected="selected"></option>
+						<option value="0" class="daysOfWeek">Sunday</option>
+						<option value="1" class="daysOfWeek">Monday</option>
+						<option value="2" class="daysOfWeek">Tuesday</option>
+						<option value="3" class="daysOfWeek">Wednesday</option>
+						<option value="4" class="daysOfWeek">Thursday</option>
+						<option value="5" class="daysOfWeek">Friday</option>
+						<option value="6" class="daysOfWeek">Saturday</option>
+					</select>
+				</div>
+
+				<br/>
+				
+				<select id="days" name="days" size="8" multiple="multiple">
+					<option value="none" class="none" selected="selected"></option>
+					<script type="text/javascript">
+						var select = document.getElementById("days");
+						for(i = 1; i <= 31; i++)
+						{
+							var option = document.createElement("option");
+							option.setAttribute("class", "days");
+							option.value = i;
+							option.innerHTML = "&#160;&#160;&#160;&#160;&#160;" + i + "&#160;&#160;&#160;&#160;&#160;";
+							option.selected = false;
+							select.appendChild(option);
+						}
+					</script>					
+				</select>
+			</div>
+
+			<div id="hoursContainer">
+				<div id="hourstext"><b>Hours</b></div>
+				<select id="hours" name="hours" size="15" multiple="multiple">
+					<option value="none" class="none" selected="selected"></option>
+					<script type="text/javascript">
+						var select = document.getElementById("hours");
+						for(i = 0; i <= 24; i++)
+						{
+							var option = document.createElement("option");
+							option.setAttribute("class", "hours");
+							option.value = i;
+							option.innerHTML = timeConverter(i);
+							option.selected = false;
+							select.appendChild(option);
+						}
+					</script>					
+				</select>
+			</div>
+
+			<div id="stopsContainer">
+				<div id="stopstext"><b>Stops</b></div>
+				<select id="stops" name="stops" size="15">
+					<option value="none" class="none" selected="selected"></option>
+				</select>
+			</div>
+		</form>						
+
+		<!-- The div where the pie will be loacted must be loaded before the JS file itself. Thus, this file can't go in the header. -->
+		<script type="text/javascript" src="js/unitransPie.js"></script>
+
+		<!-- <input type="button" value"inputbutton" value="Route J" onclick="routePieData(7);"> -->
+		<script type="text/javascript">initializeData();</script>
+		<script type="text/javascript">readAllData();</script>		
+
+	</body>
+
+</html>

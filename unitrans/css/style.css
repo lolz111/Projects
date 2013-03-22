@@ -1,0 +1,90 @@
+body {
+	background-color: DimGray;
+	background-color: Black;
+}
+
+text {
+	font-family: Calibri;
+	font-size: 25px;
+	font-style: bold;
+	fill: White;
+	text-anchor: middle;
+}
+
+.boardDeboardLabel {
+	font-size: 32px;
+	font-family: Calibri;
+	font-style: bold;
+}
+
+.centertext {
+	font-size: 28px;
+	font-family: Calibri;
+	font-style: bold;
+	fill: Orange;
+}
+
+h1 {
+	font-family: Calibri;
+	color: orange;
+	margin: auto;
+	font-size: 90px;
+	text-align: center;
+}
+
+
+h2 {
+	font-family: Calibri;
+	color: orange;
+	margin: auto;
+	font-size: 45px;
+	text-align: center;
+}
+
+#boardingsDeboardings, #applybutton {
+	text-align: center;
+	align: center;
+	font-family: Calibri;
+	font-size: 18px;
+	color: DeepSkyBlue;
+}
+
+h3, #optionsForm {	
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	color: DeepSkyBlue;
+	font-family: Calibri;
+	font-size: 25px;
+}
+
+#buslinesContainer {
+	display: inline-block;
+	margin: auto;
+	margin-left: auto;	
+	font-size: 18px;
+}
+
+#daysContainer {
+	display: inline-block;
+	margin-left: 40px;
+	font-size: 18px;
+}
+
+#daysOfWeek {
+	display: inline-block;
+	/*font-size: 18px;*/
+}
+
+#hoursContainer {
+	display: inline-block;
+	margin-left: 40px;
+	font-size: 18px;
+}
+
+#stopsContainer {
+	display: inline-block;
+	visibility: visible;
+	margin-left: 40px;
+	font-size: 18px;
+}
